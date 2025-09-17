@@ -1,20 +1,17 @@
-const Produtos = () => {
+import {useState, useeffect} from 'react'
+import axios from 'axios'
 
-    // Objeto da lista de pizzas
-    const pizzas = [
-<<<<<<< HEAD
-        'Pizza Muçarela',
-        'Pizza Calabresa',
-        'Pizza Portuguesa', 'Pizza Baiana', 'Pizza de Brocolis'
-    ]
+const Produtos = () => {
+    const[pizzas, setPizzas] = useState([])
+    // Consumir rota com lista de produtos
+    axios.get("http://172.19.0.49/pizzariaoficial/api/v1/produto")
+    .then(response=>{
+         console.log(response.data)
+
+    })
+    .catch(error=>{console.log(error)}
+)
     // Interação da lista de pizzas - pizza a pizza (um a um)
-=======
-        'Pizza Muçarela', 
-        'Pizza Calabreza',
-        'Pizza Portuguesa', 'Pizza Baiana', 'Pizza Frita'
-    ]
-    // Iteração da lista de pizzas - pizza a pizza (um a um)
->>>>>>> a07790cb35f4a9ef7bec4c459944b92ffd6ae657
     const listaPizzas = pizzas.map(pizza=><li>{pizza}</li>)
 
     return (
